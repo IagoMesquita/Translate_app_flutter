@@ -1,11 +1,6 @@
 class TranslateTextEntity {
-  final String textToTranslate;
-  final String translatedText;
-  final bool isDownloading;
+  String? textToTranslate;
+  String? translatedText;
 
-  const TranslateTextEntity({
-    required this.textToTranslate,
-    required this.translatedText,
-    required this.isDownloading,
-  });
+  TranslateTextEntity({this.textToTranslate, this.translatedText});
 }
