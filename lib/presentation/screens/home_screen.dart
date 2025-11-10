@@ -7,18 +7,32 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ColoredBox(
-              color: Colors.blueGrey,
-              child: Row(
-                children: [
-                  CustomDropdownMenu(),
-                  Icon(Icons.arrow_forward, color: Colors.white),
-                  CustomDropdownMenu(),
-                ],
+            FittedBox( //Nao tinha na aula, precisei implementar para manter o padding 15
+              fit: BoxFit.contain,
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: ColoredBox(
+                    color: Colors.blueGrey,
+                    child: Row(
+                      children: [
+                        CustomDropdownMenu(
+                          languages: ["Portugues", "English"],
+                          initialSelection: "Portugues",
+                        ),
+                        Icon(Icons.arrow_forward, color: Colors.white),
+                        CustomDropdownMenu(
+                          languages: ["Portugues", "English"],
+                          initialSelection: "English",
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
