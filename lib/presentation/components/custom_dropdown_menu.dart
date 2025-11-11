@@ -18,10 +18,10 @@ class CustomDropdownMenu extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: DropdownMenu(
         onSelected: onSelected,
+        initialSelection: initialSelection,
         menuStyle: MenuStyle(alignment: Alignment.center),
         textAlign: TextAlign.center,
         textStyle: TextStyle(color: Colors.white),
-        initialSelection: initialSelection,
         trailingIcon: Icon(Icons.arrow_drop_down, color: Colors.white),
         selectedTrailingIcon: Icon(Icons.arrow_drop_up, color: Colors.white),
         dropdownMenuEntries: languages
