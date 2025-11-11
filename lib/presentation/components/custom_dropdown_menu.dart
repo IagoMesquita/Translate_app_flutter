@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:translate/domain/helpers/languages.dart';
 
 class CustomDropdownMenu extends StatelessWidget {
   const CustomDropdownMenu({
@@ -8,9 +9,9 @@ class CustomDropdownMenu extends StatelessWidget {
     this.initialSelection,
   });
 
-  final void Function(String?)? onSelected;
-  final List<String> languages;
-  final String? initialSelection;
+  final void Function(Languages?)? onSelected;
+  final List<Languages> languages;
+  final Languages? initialSelection;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CustomDropdownMenu extends StatelessWidget {
         selectedTrailingIcon: Icon(Icons.arrow_drop_up, color: Colors.white),
         dropdownMenuEntries: languages
             .map(
-              (language) => DropdownMenuEntry(value: language, label: language),
+              (language) => DropdownMenuEntry(value: language, label: language.name),
             )
             .toList(),
       ),

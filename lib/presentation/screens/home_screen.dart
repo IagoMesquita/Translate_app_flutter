@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:translate/domain/helpers/languages.dart';
 import 'package:translate/presentation/components/components.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  final languages = Languages.values;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +26,13 @@ class HomeScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         CustomDropdownMenu(
-                          languages: ["Portugues", "English"],
-                          initialSelection: "Portugues",
+                          languages: languages,
+                          initialSelection: Languages.portuguese,
                         ),
                         Icon(Icons.arrow_forward, color: Colors.white),
                         CustomDropdownMenu(
-                          languages: ["Portugues", "English"],
-                          initialSelection: "English",
+                          languages: languages,
+                          initialSelection: Languages.english,
                         ),
                       ],
                     ),
