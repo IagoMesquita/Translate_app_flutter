@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:translate/presentation/components/custom_dropdown_menu.dart';
+import 'package:translate/presentation/components/components.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,12 +8,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            FittedBox( //Nao tinha na aula, precisei implementar para manter o padding 15
-              fit: BoxFit.contain,
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            spacing: 40, //Espaco entre os elementos da Column
+            children: [
+              FittedBox(
+                // Nao tem na aula. Necessario para manter o padding e 15 sem overflow
+                fit: BoxFit.contain,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: ColoredBox(
@@ -34,8 +36,26 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-          ],
+
+              TranslateBox(
+                labelText: 'Escreva algo...',
+                icons: [
+                  Icon(Icons.volume_up),
+                  Icon(Icons.copy),
+                  Icon(Icons.delete),
+                ],
+              ),
+
+              TranslateBox(
+                labelText: 'Tradução',
+                icons: [Icon(Icons.volume_up), Icon(Icons.copy)],
+                isTextFild: false,
+              ),
+              FilledButton(style: ButtonStyle(
+                backgroundColor: WidgetStatePropertyAll(Colors.blueGrey)
+              ),  onPressed: () {}, child: Text('Traduzir'),),
+            ],
+          ),
         ),
       ),
     );
